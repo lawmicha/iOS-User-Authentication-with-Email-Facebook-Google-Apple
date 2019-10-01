@@ -11,5 +11,5 @@ let EmailUserAttributeKey: String = "email"
 let NameUserAttributeKey: String = "name"
 let PhoneNumberUserAttributeKey: String = "phone_number"
 
-let LightColor = UIColor.rgb(red: 149, green: 204, blue: 244)
-let DarkColor = UIColor.rgb(red: 17, green: 154, blue: 237)
+let LightColor = UIColor.rgb(red: 242, green: 105, blue: 116)
+let DarkColor = UIColor.rgb(red: 237, green: 41, blue: 57)

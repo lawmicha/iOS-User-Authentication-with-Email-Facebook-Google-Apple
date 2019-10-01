@@ -1,10 +1,10 @@
 
-## iOS User Authentication with Email/Facebook/Google - AWS Amplify CLI - AWSMobileClient - HostedUI - UIKit
+## iOS User Authentication with Email/Facebook/Google
 
 This is a template app that can be bootstrapped using your own backend resources created with Amplify CLI.
 
 ### What is it?
-- Amplify CLI version used: 3.9.0
+- AWS Amplify CLI version used: 3.9.0
 - iOS 13
 - Xcode 11
 - SDKs Used: AWSMobileClient with HostedUI
@@ -22,9 +22,13 @@ This is a template app that can be bootstrapped using your own backend resources
 
 ### GIF
 
+
+
 ### Backlog
 
-#### Setup Tutorial
+
+
+## Steps to get the app running
 
 1. Install dependencies with `pod install`
 
@@ -33,47 +37,66 @@ This is a template app that can be bootstrapped using your own backend resources
 3. Add auth `amplify add auth`
 
 ```
-What do you want to do? Apply default configuration with Social Provider (Federation)
- What domain name prefix you want us to create for you? amplifyuserauthentic98b7826f-98b7826f
+Using service: Cognito, provided by: awscloudformation
+ 
+ The current configured provider is Amazon Cognito. 
+ 
+ Do you want to use the default authentication and security configuration? Default configuration with Social Provider (Federation)
+ Warning: you will not be able to edit these selections. 
+ How do you want users to be able to sign in? Email
+ Do you want to configure advanced settings? Yes, I want to make some additional changes.
+ Warning: you will not be able to edit these selections. 
+ What attributes are required for signing up? (Press <space> to select, <a> to toggle all, <i> to invert selection)Email
+ Do you want to enable any of the following capabilities? (Press <space> to select, <a> to toggle all, <i> to invert selection)
+ What domain name prefix you want us to create for you? amplifyuserauthentic88888888-88888888
  Enter your redirect signin URI: myapp://
 ? Do you want to add another redirect signin URI No
  Enter your redirect signout URI: myapp://
 ? Do you want to add another redirect signout URI No
- Select the identity providers you want to configure for your user pool: Facebook, Google
- 
+ Select the social providers you want to configure for your user pool: Facebook, Google
+  
  You've opted to allow users to authenticate via Facebook.  If you haven't already, you'll need to go to https://developers.facebook.com and create an App ID. 
  
- Enter your Facebook App ID for your OAuth flow:  
- Enter your Facebook App Secret for your OAuth flow:  
+ Enter your Facebook App ID for your OAuth flow:  xxxxxxxxxxxxxx
+ Enter your Facebook App Secret for your OAuth flow:  xxxxxxxxxxxxxxxxxxxxxxxxxxxx
   
  You've opted to allow users to authenticate via Google.  If you haven't already, you'll need to go to https://developers.google.com/identity and create an App ID. 
  
- Enter your Google Web Client ID for your OAuth flow:  
- Enter your Google Web Client Secret for your OAuth flow:  
+ Enter your Google Web Client ID for your OAuth flow:  xxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
+ Enter your Google Web Client Secret for your OAuth flow:  xxxxxxxxxxxxxxxxxx
+Successfully added resource amplifyuserauthentic88888888 locally
  
 ```
-Follow docs to get the App ID/App Secret/Web Client ID/Web Client Secret here : https://aws-amplify.github.io/docs/ios/authentication
 
-4. Run `amplify push`, you should see the `awsconfiguration.json` file created
+To get the Facebook App Id/Secret, follow https://aws-amplify.github.io/docs/ios/authentication#setting-up-oauth-with-facebook
 
-5. Now `amplify status` or previous output will show the user pool domain, use that back in the social providers app developer side
+To get Google Web Client ID/Secret, follow https://aws-amplify.github.io/docs/ios/authentication#setting-up-oauth-with-google
 
-
-Steps 6 to 8 may be possible through Amplify CLI instead of manually mapping.
-
-6. Go to AWS Console -> Cognito -> <your user pool> -> Attribute Mapping
-
-7. Update Facebook's mapping to 
+4. Run `amplify push`, wait a few minutes, and you should see `awsconfiguration.json` file populated and find your Hosted UI Endpoint at the end of the output
 
 ```
-capture Facebook email as Email
-capture Facebook name as name
-
+Hosted UI Endpoint: https://xxxxxxxxxxxxxxxxxxxxxxx-xxxxxxxx-devo.auth.us-east-1.amazoncognito.com/
+Test Your Hosted UI Endpoint: https://xxxxxxxxxxxxxxxxxxxxxxx-xxxxxxxx-devo.auth.us-east-1.amazoncognito.com/login?response_type=code&client_id=moi39stkfecjithdddfcgl7kv&redirect_uri=myapp://
 ```
 
-8. Update Google's mapping to
+5. Take your hosted UI domain Endpoint and follow these steps
 
-5. Open the workspace file with `open AmplifyUserAuthentication1.xcworkspace`
+Facebook https://aws-amplify.github.io/docs/ios/authentication#setting-up-hosted-ui-domain-with-facebook
 
-6. Build and run the project
+Google https://aws-amplify.github.io/docs/ios/authentication#setting-up-hosted-ui-domain-with-google
 
+6. Open the workspace file with `open AmplifyUserAuthentication1.xcworkspace`
+
+7. Build and run the project, sign in with Facebook/Google
+
+8. Check out your users in AWS Console -> Cognito -> Manage user pools -> <your user pool> -> Users and Groups
+
+Your userpool can be found in amplify/backend/amplify-meta.json, in "UserPoolName"
+
+You can also check out the Attribute Mapping tab to see the mapping used for Facebook/Google to create a Cognito User after social sign-in
+
+9. Sign up with email. note, phone number has to be in the format of "+12344321111", unless we do some client side work to prepend the "+1".
+
+10. Login with incorrect password, the 'forgot password' button will appear and allow the user to trigger the verification code to be sent to the email. If the user enters the code, they will be prompt with entering a new password.
+
+11. Other options can be updated using `amplify update auth` like the password requirements, etc.

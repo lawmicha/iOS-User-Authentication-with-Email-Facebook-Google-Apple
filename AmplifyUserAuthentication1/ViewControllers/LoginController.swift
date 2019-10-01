@@ -243,22 +243,10 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        //GIDSignIn.sharedInstance()?.presentingViewController = self
 
         navigationController?.isNavigationBarHidden = true
 
         setupInputFields()
-        view.addSubview(forgotPassword)
-        forgotPassword.anchor(top: errorMessageLabel.bottomAnchor,
-                              left: view.leftAnchor,
-                              bottom: nil,
-                              right: view.rightAnchor,
-                              paddingTop: 0,
-                              paddingLeft: 0,
-                              paddingBottom: 0,
-                              paddingRight: 0,
-                              width: 0,
-                              height: 20)
         view.addSubview(dummyBottomView)
         dummyBottomView.anchor(top: nil,
                                left: view.leftAnchor,
@@ -289,6 +277,7 @@ class LoginController: UIViewController {
                                                        passwordTextField,
                                                        loginButton,
                                                        errorMessageLabel,
+                                                       forgotPassword,
                                                        fbLoginButton,
                                                        googleLoginButton])
 
@@ -297,6 +286,6 @@ class LoginController: UIViewController {
         stackView.distribution = .fillEqually
 
         view.addSubview(stackView)
-        stackView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 40, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: 300)
+        stackView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 40, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: 400)
     }
 }
