@@ -8,6 +8,7 @@ This is a template app that can be bootstrapped using your own backend resources
 - iOS 13
 - Xcode 11
 - SDKs Used: AWSMobileClient with HostedUI
+- Backend services: AWS Cognito
 - View layer: UIKit; programmatic views
 
 ### Completed Features
@@ -20,13 +21,13 @@ This is a template app that can be bootstrapped using your own backend resources
 - Enter the code sent to the email and enter a new password 
 - Fail to sign up with an email that has already been taken (broken for gmail accounts by adding periods in email) 
 
-### GIF
-
-
+![](demo.gif)
 
 ### Backlog
-
-
+- Facebook and Google buttons should conform to their respective designs
+- Code clean up
+- Display email as username for logged in federated users from the user attributess
+- Other clean up
 
 ## Steps to get the app running
 
