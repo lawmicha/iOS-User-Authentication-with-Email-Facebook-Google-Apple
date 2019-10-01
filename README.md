@@ -25,9 +25,9 @@ This is a template app that can be bootstrapped using your own backend resources
 
 ### Backlog
 - Facebook and Google buttons should conform to their respective designs
-- Code clean up
 - Display email as username for logged in federated users from the user attributess
-- Other clean up
+- Code clean up
+- Replace views with SwiftUI components
 
 ## Steps to get the app running
 
