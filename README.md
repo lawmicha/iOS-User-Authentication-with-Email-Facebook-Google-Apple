@@ -25,9 +25,12 @@ This is a template app that can be bootstrapped using your own backend resources
 
 ### Backlog
 - Facebook and Google buttons should conform to their respective designs
+- Add Amazon sign in button
+- Add Apple sign in button
 - Display email as username for logged in federated users from the user attributess
-- Code clean up
+- Code clean up (move color constant over to UIColor extension, and others)
 - Replace views with SwiftUI components
+- Allow configuraiton/customizable to change color, hide unused buttons, etc.
 
 ## Steps to get the app running
 
