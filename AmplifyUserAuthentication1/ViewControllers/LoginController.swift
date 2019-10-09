@@ -246,6 +246,15 @@ class LoginController: UIViewController {
 
         navigationController?.isNavigationBarHidden = true
 
+
+        AWSMobileClient.default().showSignIn(navigationController: navigationController!, { (signInState, error) in
+            if let signInState = signInState {
+                print("Sign in flow completed: \(signInState)")
+            } else if let error = error {
+                print("error logging in: \(error.localizedDescription)")
+            }
+        })
+
         setupInputFields()
         view.addSubview(dummyBottomView)
         dummyBottomView.anchor(top: nil,

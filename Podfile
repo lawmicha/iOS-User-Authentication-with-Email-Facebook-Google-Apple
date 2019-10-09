@@ -7,5 +7,8 @@ target 'AmplifyUserAuthentication1' do
   use_frameworks!
 
   # Pods for AmplifyUserAuthentication1
-  pod "AWSMobileClient", "~> #{AWS_SDK_VERSION}"
+  pod "AWSMobileClient", :path => "~/aws-amplify/master/aws-sdk-ios"
+  pod "AWSAuthUI", :path => "~/aws-amplify/master/aws-sdk-ios"
+  pod "AWSUserPoolsSignIn", :path => "~/aws-amplify/master/aws-sdk-ios"
+  pod "AWSAuthCore", :path => "~/aws-amplify/master/aws-sdk-ios"
 end
