@@ -246,8 +246,8 @@ class LoginController: UIViewController {
 
         navigationController?.isNavigationBarHidden = true
 
-
-        AWSMobileClient.default().showSignIn(navigationController: navigationController!, { (signInState, error) in
+        let signInUIOptions = SignInUIOptions(disableSignUpButton: true)
+        AWSMobileClient.default().showSignIn(navigationController: navigationController!, signInUIOptions: signInUIOptions, { (signInState, error) in
             if let signInState = signInState {
                 print("Sign in flow completed: \(signInState)")
             } else if let error = error {
