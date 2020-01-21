@@ -79,6 +79,20 @@ class LoginController: UIViewController {
        return button
     }()
 
+    let appleLoginButton: UIButton = {
+       let button = UIButton(type: .system)
+       button.setTitle("Apple", for: .normal)
+       button.backgroundColor = DarkColor
+
+       button.layer.cornerRadius = 5
+       button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+       button.setTitleColor(.white, for: .normal)
+
+       button.addTarget(self, action: #selector(handleAppleLogin), for: .touchUpInside)
+
+       return button
+    }()
+
 
 
     let forgotPassword: UIButton = {
@@ -184,6 +198,10 @@ class LoginController: UIViewController {
         handleFederatedSignIn(identityProvider: "Google")
     }
 
+    @objc func handleAppleLogin() {
+        handleFederatedSignIn(identityProvider: "SignInWithApple")
+    }
+
     func handleFederatedSignIn(identityProvider: String) {
         // Optionally override the scopes based on the usecase.
         let hostedUIOptions = HostedUIOptions(identityProvider: identityProvider)
@@ -201,11 +219,9 @@ class LoginController: UIViewController {
             }
 
             DispatchQueue.main.async {
-                DispatchQueue.main.async {
-                    guard let mainViewController = UIApplication.shared.keyWindow?.rootViewController as? MainViewController else { return }
-                    mainViewController.setupViewController()
-                    self.dismiss(animated: true, completion: nil)
-                }
+                guard let mainViewController = UIApplication.shared.keyWindow?.rootViewController as? MainViewController else { return }
+                mainViewController.setupViewController()
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -279,7 +295,8 @@ class LoginController: UIViewController {
                                                        errorMessageLabel,
                                                        forgotPassword,
                                                        fbLoginButton,
-                                                       googleLoginButton])
+                                                       googleLoginButton,
+                                                       appleLoginButton])
 
         stackView.axis = .vertical
         stackView.spacing = 10

@@ -58,14 +58,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>myapp</string>
-        </array>
-        </dict>
-    </array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>lawmicha</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

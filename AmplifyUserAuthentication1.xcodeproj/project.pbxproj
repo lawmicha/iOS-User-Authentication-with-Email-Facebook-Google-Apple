@@ -430,7 +430,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F2ZS4C54WP;
+				DEVELOPMENT_TEAM = 3XS7A2X6Q6;
 				INFOPLIST_FILE = AmplifyUserAuthentication1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -449,7 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F2ZS4C54WP;
+				DEVELOPMENT_TEAM = 3XS7A2X6Q6;
 				INFOPLIST_FILE = AmplifyUserAuthentication1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
