@@ -1,5 +1,5 @@
 
-## iOS User Authentication with Email/Facebook/Google
+## iOS User Authentication with Email/Facebook/Google/Apple
 
 This is a template app that can be bootstrapped using your own backend resources created with Amplify CLI.
 
